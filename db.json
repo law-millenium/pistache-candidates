@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "id": "evt-001",
+      "name": "Séminaire Q3",
+      "start_date": "2025-10-18",
+      "city": "Paris",
+      "updated_at": "2025-08-01T09:15:00Z"
+    },
+    {
+      "id": "evt-002",
+      "name": "Afterwork Paris",
+      "start_date": null,
+      "city": "Paris",
+      "updated_at": "2025-08-02T17:40:00Z"
+    },
+    {
+      "id": "evt-003",
+      "name": "Kickoff Produit",
+      "start_date": "2025-11-07",
+      "city": "Lille",
+      "updated_at": "2025-08-05T12:05:00Z"
+    }
+  ]
+}

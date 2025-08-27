@@ -1,1 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
+/* ========== Variables couleurs Pistache ========== */
+:root {
+  --bg: #FCFBF2;        /* blanc fleur */
+  --surface: #FFFFFF;
+  --text: #064E4B;      /* vert Brunswick foncé */
+  --muted: #6b7280;     /* gris neutre */
+  --primary: #8CBF63;   /* vert pistache */
+  --primary-dark: #6ea44d; /* pistache foncé */
+  --danger: #d9534f;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 16px;
+  --container: 1100px;
+}
+
+/* ========== Reset léger & base ========== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1,h2,h3 { margin: 0 0 .5rem; line-height: 1.2; color: var(--text); }
+p { margin: .25rem 0; color: var(--muted); }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ========== Layout générique ========== */
+.app-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+
+/* ========== Cards ========== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  transition: transform .1s ease, border-color .2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+.card h3 {
+  margin-bottom: .25rem;
+  font-size: 1.1rem;
+}
+
+/* ========== Formulaires ========== */
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+label { display: grid; gap: 6px; font-weight: 500; color: var(--text); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(140,191,99,.25);
+  outline: none;
+}
+
+.error {
+  color: var(--danger);
+  font-size: .85rem;
+}
+
+/* ========== Boutons ========== */
+button {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .15s ease, transform .05s ease;
+}
+button:hover { background: var(--primary-dark); }
+button:active { transform: translateY(1px); }
+button[disabled] {
+  cursor: not-allowed;
+  opacity: .6;
+}

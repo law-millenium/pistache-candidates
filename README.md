@@ -1,59 +1,89 @@
-# EntretienPistache
+# Entretien Pistache — Mini-projet Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+## Bienvenue 👋
+Ce dépôt contient un mini-projet Angular destiné à évaluer votre capacité à livrer deux fonctionnalités simples mais soignées autour d’une liste d’événements.
 
-## Development server
+---
 
-To start a local development server, run:
+## Objectif
 
+Au minimum, vous devez :
+
+- Afficher la liste des événements.
+- Permettre la création d’un nouvel événement (formulaire + écriture côté API factice).
+
+L’évaluation porte sur la qualité, pas sur la quantité :
+
+- **Accessibilité**
+- **UX**
+- **Qualité du code**
+- **Respect des standards Angular**
+- **Performance**
+
+Des fonctionnalités bonus sont possibles si vous le souhaitez (édition/suppression, recherche/tri...), mais elles ne sont pas requises.
+
+---
+
+## Stack fournie
+
+- **Angular 20**
+- **json-server** (API factice persistée dans `db.json`) + proxy Angular (`/api` → `:4300`)
+
+
+---
+
+## Ce qu’on attend concrètement
+
+- La page principale affiche la liste des événements via l’API (`GET /api/events`)
+- Un formulaire permet de créer un événement (`POST /api/events`) et la liste se met à jour
+---
+
+## Pré-requis
+
+- Node.js ≥ 18 (recommandé 20.x)
+- npm ≥ 9
+- Accès réseau local (pour json-server)
+
+---
+
+## Installation
+
+### 1) Installer les dépendances
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Le projet inclut déjà `concurrently` et `json-server` en devDependencies.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Lancement
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Une seule commande démarre Angular et l’API en parallèle :
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+- **Frontend** : http://localhost:4200  
+- **API factice (via proxy)** : requêtes à `/api/events` → proxifiées vers http://localhost:4300/events  
+- Données persistées dans `db.json` à la racine.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Endpoints utiles (json-server) - des fonctions sont déjà créées dans events.service.ts
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- `GET /api/events` — liste des événements  
+- `POST /api/events` — crée un événement  
+- `PATCH /api/events/:id` — met à jour partiellement  
+- `DELETE /api/events/:id` — suppression  
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## UI
+Libre. Le style fourni (`styles.scss`) est un point de départ ; vous pouvez l’améliorer si vous le souhaitez.  
+L’UI n’est pas notée prioritairement, mais une **UX propre** est attendue.
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Bon code !
