@@ -7,6 +7,7 @@ import { EventsService } from '../../../core/services/events.service';
 import { EventCard } from '../event-card/event-card';
 import { EventList } from './event-list';
 
+// TODO : fix tests with input
 describe('EventList', () => {
   let component: EventList;
   let fixture: ComponentFixture<EventList>;
