@@ -1,0 +1,49 @@
+@let nameControl = eventForm.get('name'); @let startDateControl = eventForm.get('start_date'); @let
+cityControl = eventForm.get('city');
+
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <div class="form-field">
+    <label for="name">Nom de l'évènement *</label>
+    <input id="name" type="text" formControlName="name" />
+    @if(nameControl?.touched && nameControl?.invalid) {
+    <div class="error">
+      @if(nameControl?.errors?.['required']) {
+      <small>Le nom est obligatoire.</small>
+      } @if(nameControl?.errors?.['maxlength']) {
+      <small>Le nom ne doit pas dépasser 32 caractères.</small>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="start_date">Date de début (dd/MM/yyyy)</label>
+    <input id="start_date" type="text" placeholder="jj/MM/aaaa" formControlName="start_date" />
+    @if (startDateControl?.touched && startDateControl?.invalid) {
+    <div class="error">
+      @if (startDateControl?.errors?.['invalidDateFormat']) {
+      <small>Format invalide. Utilisez jj/MM/aaaa.</small>
+      } @if (startDateControl?.errors?.['invalidDate']) {
+      <small>La date saisie n'est pas valide.</small>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- City -->
+  <div class="form-field">
+    <label for="city">Ville</label>
+    <input id="city" type="text" formControlName="city" />
+    @if (cityControl?.touched && cityControl?.invalid) {
+    <div class="error">
+      @if (cityControl?.errors?.['maxlength']) {
+      <small>La ville ne doit pas dépasser 32 caractères.</small>
+      } @if (cityControl?.errors?.['containsDigits']) {
+      <small>La ville ne doit pas contenir de chiffres.</small>
+      }
+    </div>
+    }
+  </div>
+
+  <button type="submit">Créer l'événement</button>
+</form>
