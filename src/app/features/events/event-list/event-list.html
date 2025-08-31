@@ -1,0 +1,15 @@
+@let sortedEvents = sortedByStartDateEvents();
+
+<div class="events-container">
+  @if (sortedEvents) { @if(sortedEvents.length > 0) {
+  <div class="events-grid">
+    @for (event of sortedEvents; track event.id) {
+    <app-event-card [event]="event"></app-event-card>
+    }
+  </div>
+  } @else {
+  <p class="empty">Aucun événement disponible.</p>
+  } } @else {
+  <p class="loading">Chargement des événements...</p>
+  }
+</div>
