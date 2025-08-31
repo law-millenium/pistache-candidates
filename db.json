@@ -18,7 +18,7 @@
       "id": "evt-003",
       "name": "Kickoff Produit",
       "start_date": "2025-11-07",
-      "city": "Lille",
+      "city": null,
       "updated_at": "2025-08-05T12:05:00Z"
     }
   ]
